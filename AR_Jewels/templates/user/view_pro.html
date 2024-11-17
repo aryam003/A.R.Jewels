@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/view.css' %}">
+</head>
+<body>
+  
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+               <img class="card-img-top" src="{{product.img.url}}" alt="Card image" style="width:270px" height="270px">
+            
+            <div class="mt-5">
+            <a href="../buy_pro/{{product.pk}}" class="btn btn-outline-primary">Buy Now</a>
+            {% if cart %}
+                <a href="../cart_display" class="btn btn-outline-primary"> Go to cart</a>
+                {% else %}
+                    <a href="../add_to_cart/{{product.pk}}" class="btn btn-outline-primary">add to cart</a>
+            {% endif%}
+            </div>
+        </div>
+    <div class="col-lg-7">
+    <!-- <p class="card-text">{{product.jewels_id}}</p> -->
+    <p class="card-text">{{product.category}}</p>
+    <h4 class="card-title">{{product.jewels_name}}</h4>
+    <p class="card-text">{{product.price}}</p>
+    <p class="card-text">{{product.offer_price}}</p>
+    <p class="card-text" >{{product.description}}</p>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
